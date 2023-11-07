@@ -1,0 +1,56 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-image:url("home page.png"); 
+  margin: 0;
+  padding: 0;
+  text-size-adjust: 10px;
+}
+
+header {
+  background-color: #4CAF50; 
+  color: white;
+  text-align:end;
+  padding:5px;
+  position:relative
+}
+h1{
+  font-size:30px;
+  text-align:center;
+}
+h2{
+  font-size:20px;
+  position: relative;
+}
+
+nav ul {
+
+  list-style: none;
+  border-image:url("plant basket 1.jpg");
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  border-image:url("plant basket 2.jpg") ;
+margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align:center;
+  padding: 10px;
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+}
