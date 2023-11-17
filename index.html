@@ -1,51 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eco-Friendly Plant Basket</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Farming To-Do List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        #task-form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #task-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #task-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #task-list {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .task-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-item button {
+            background-color: #ff6060;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>Organic Farming To-Do List</h1>
+    </header>
 
-  <main>
+    <div id="task-form">
+        <form id="add-task-form">
+            <label for="task">New Task:</label>
+            <input type="text" id="task" name="task" required>
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
 
-    <section id="home">
-  <h1>Welcome to Our Eco-Friendly Plant Basket.......!!</h1>
-  </section>
-  <h2>contact us</h2>
-  <div class="contact-form">
-    <form action="submit_form.php" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+    <div id="task-list">
+        <!-- Tasks will be dynamically added here -->
+    </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" 
-      name="email" required>
+    <script>
+        document.getElementById("add-task-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            addTask();
+        });
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message"
-       aria-current="4" required></textarea>
+        function addTask() {
+            var taskInput = document.getElementById("task");
+            var taskList = document.getElementById("task-list");
 
-      <button type="submit">Send</button>
-    </form>
-  </div>
-</section>
-    </section>
-  </main>
+            var taskItem = document.createElement("div");
+            taskItem.classList.add("task-item");
 
-  <footer>
-    <p>&copy; 2023 Eco-Friendly Plant Basket</p>
-  </footer>
+            var taskText = document.createElement("span");
+            taskText.textContent = taskInput.value;
+
+            var deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.addEventListener("click", function () {
+                taskList.removeChild(taskItem);
+            });
+
+            taskItem.appendChild(taskText);
+            taskItem.appendChild(deleteButton);
+            taskList.appendChild(taskItem);
+
+            taskInput.value = "";
+        }
+    </script>
 </body>
 </html>
